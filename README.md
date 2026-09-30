@@ -1,6 +1,7 @@
 # TechNova Reservations API
 
 ## Aluno
+
 - Nome: Carollini Godoy dos Santos Roque
 - RA: 3925000
 
@@ -33,3 +34,10 @@ O projeto também utiliza Docker e Docker Compose para execução local da aplicaçã
 - GET /reservas/:id
 - PUT /reservas/:id
 - DELETE /reservas/:id
+
+## Execução local
+
+Para iniciar a aplicação:
+
+```bash
+docker compose up -d --build

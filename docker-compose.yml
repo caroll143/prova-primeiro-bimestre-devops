@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: technova-postgres
+    environment:
+      POSTGRES_DB: reservas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./app/src/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - technova-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d reservas"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ./app
+    container_name: technova-api
+    environment:
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: reservas
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    ports:
+      - "3001:3000"
+    networks:
+      - technova-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+
+networks:
+  technova-network:
+    driver: bridge
