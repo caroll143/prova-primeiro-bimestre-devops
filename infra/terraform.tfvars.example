@@ -1,0 +1,10 @@
+aws_region  = "us-east-1"
+environment = "dev"
+
+vpc_cidr = "10.0.0.0/16"
+
+key_name = "technova-key"
+
+db_name     = "reservas"
+db_username = "technova"
+db_password = "COLOQUE_SUA_SENHA_AQUI"

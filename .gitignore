@@ -8,3 +8,4 @@ node_modules/
 *.key
 crash.log
 npm-debug.log*
+infra/terraform.tfvars
