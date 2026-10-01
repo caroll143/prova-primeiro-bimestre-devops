@@ -1,0 +1,3 @@
+﻿NAME                IMAGE                                COMMAND                  SERVICE    CREATED        STATUS                  PORTS
+technova-api        prova-primeiro-bimestre-devops-api   "docker-entrypoint.sÔÇª"   api        22 hours ago   Up 22 hours             0.0.0.0:3001->3000/tcp, [::]:3001->3000/tcp
+technova-postgres   postgres:16                          "docker-entrypoint.sÔÇª"   postgres   23 hours ago   Up 23 hours (healthy)   5432/tcp
